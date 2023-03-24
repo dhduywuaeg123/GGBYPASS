@@ -1,0 +1,76 @@
+<body>
+  <div>
+    <h1 id='G'>GGBYPASS</h1>
+    <input type="url" placeholder="Enter url with https://" id='url'>
+    <button type="button" id="btn" onclick="myFunction()">Go!</button>
+    <h4>Developed by ZAAKIRMUHAMMAD and LJFR</h4>
+
+    <div id="embed-url-here"></div>
+
+    <script>
+      function myFunction() {
+        console.log("The function was called!");
+        var url = document.getElementById("url").value;
+        console.log(url);
+        if (url !== "") {
+          var html = '<iframe src="' + url + '" frameborder="0" allowfullscreen></iframe>';
+          document.getElementById("embed-url-here").innerHTML = html;
+        } else {
+          alert("Please enter a valid URL!");
+        }
+        return false;
+      }
+    </script>
+    <embed src="contact-form.html">
+  </div>
+</body>
+
+<style>
+  body {
+    background-image: url(assets/sound-waves.gif);
+    background-size: cover;
+    background-position: center;
+  }
+
+  div {
+    text-align: center;
+    font-family: monospace;
+    color: skyblue;
+    font-size: 20px;
+  }
+
+  #G {
+    font-size: 100px;
+    color: magenta
+  }
+
+  #L {
+    color: lightgreen;
+  }
+
+  #embed-url-here iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media-screen and (min-width: 1920px) {
+    .info-box:after {
+      content: ' ';
+      width: 0px;
+      height: 0px;
+      border-top: 10px solid transparent;
+      border-left: 10px solid transparent;
+      border-bottom: 20px solid;
+      border-bottom-color: #FFFFFF;
+      border-right: 10px solid transparent;
+      margin-top: -1.5%;
+      left: 8%;
+      position: absolute;
+      z-index: 10000;
+    }
+  }
+</style>
