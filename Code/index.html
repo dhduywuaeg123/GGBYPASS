@@ -20,6 +20,26 @@
         }
         return false;
       }
+      // Check if the user is navigating back to the top-level page
+  window.addEventListener("message", function(event) {
+    if (event.data === "navigation-check") {
+      // If the current location is the top-level page, update the browser history
+      if (window.location.href === window.top.location.href) {
+        window.history.pushState(null, null, document.location.href);
+      }
+      // If the current location is within the iframe, navigate back within the iframe
+      else {
+        parent.postMessage("navigate-back", "*");
+      }
+    }
+  });
+
+  // Track the iframe navigation history
+  var iframe = document.getElementById('embed-url-here').querySelector('iframe');
+  iframe.onload = function() {
+    var iframeLocation = iframe.contentWindow.location.href;
+    window.history.pushState(null, null, "?page=" + encodeURIComponent(iframeLocation));
+  };
     </script>
     <embed src="contact-form.html" id=e>
   </div>
